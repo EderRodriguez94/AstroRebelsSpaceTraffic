@@ -8,6 +8,56 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.025, 0.04, 0.09, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 42.0
+offset_right = 696.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0.35, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "TRAFFIC CONTROL"
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 150.0
+offset_right = 696.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0.8, 0.86, 0.96, 1)
+theme_override_font_sizes/font_size = 22
+text = "Level 1  •  Route the first passengers"
+horizontal_alignment = 1
+
+[node name="Board" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 280.0
+offset_right = 680.0
+offset_bottom = 900.0
+color = Color(0.07, 0.1, 0.18, 1)
+
+[node name="Hint" type="Label" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 510.0
+offset_right = 660.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(0.55, 0.68, 0.82, 1)
+theme_override_font_sizes/font_size = 20
+text = "Gameplay board ready"
+horizontal_alignment = 1
+
 [node name="SafeArea" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
