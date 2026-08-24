@@ -7,7 +7,6 @@ public readonly record struct GridCell
 
     public GridCell(int x, int y)
     {
-        if (x < 0 || y < 0) throw new ArgumentOutOfRangeException(nameof(x), "Grid coordinates cannot be negative.");
         X = x;
         Y = y;
     }

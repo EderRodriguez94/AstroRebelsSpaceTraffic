@@ -31,10 +31,18 @@ public sealed class GameState
         Reserve = reserve.ToArray(); MechanicFlags = new Dictionary<string, bool>(mechanicFlags); AttemptModifiers = new Dictionary<string, bool>(attemptModifiers); TutorialState = tutorialState;
     }
 
-    public static GameState CreateInitial(string levelId, GridState zones, IEnumerable<ShipState> ships, PassengerQueueState passengerQueue,
-        PreQueueState preQueue, IEnumerable<DockState> docks, string attemptId = "initial")
+    public static GameState Create(string levelId, GridState zones, IEnumerable<ShipState> ships, PassengerQueueState passengerQueue,
+        PreQueueState preQueue, IEnumerable<DockState> docks, string attemptId = "initial", GamePhase phase = GamePhase.Playing,
+        int moveIndex = 0, ShipState? vipDock = null, IEnumerable<ShipState>? reserve = null,
+        IReadOnlyDictionary<string, bool>? mechanicFlags = null, IReadOnlyDictionary<string, bool>? attemptModifiers = null,
+        string tutorialState = "none")
     {
         var shipMap = ships.ToDictionary(ship => ship.ShipId);
-        return new GameState(1, levelId, attemptId, GamePhase.Playing, 0, zones, shipMap, passengerQueue, preQueue, docks.ToArray(), null, Array.Empty<ShipState>(), new Dictionary<string, bool>(), new Dictionary<string, bool>(), "none");
+        return new GameState(1, levelId, attemptId, phase, moveIndex, zones, shipMap, passengerQueue, preQueue, docks.ToArray(), vipDock,
+            (reserve ?? Array.Empty<ShipState>()).ToArray(), mechanicFlags ?? new Dictionary<string, bool>(), attemptModifiers ?? new Dictionary<string, bool>(), tutorialState);
     }
+
+    public static GameState CreateInitial(string levelId, GridState zones, IEnumerable<ShipState> ships, PassengerQueueState passengerQueue,
+        PreQueueState preQueue, IEnumerable<DockState> docks, string attemptId = "initial") =>
+        Create(levelId, zones, ships, passengerQueue, preQueue, docks, attemptId);
 }

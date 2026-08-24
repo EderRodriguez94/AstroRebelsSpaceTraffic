@@ -2,9 +2,9 @@ namespace AstroRebelsTraffic.Domain.State;
 
 public enum Direction { Up, Down, Left, Right }
 public enum ShipSize { Small, Medium, Large }
-public enum GamePhase { Setup, Playing, Resolved, Complete }
+public enum GamePhase { Playing, Won, Lost }
 public enum DockKind { Standard, Booster }
-public enum SpecialType { None, Booster }
+public enum SpecialType { Normal, Mystery }
 
 public static class DomainEnumSerialization
 {
