@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+small = "res://assets/Art/Ships/ship_small.svg"
+medium = "res://assets/Art/Ships/ship_medium.svg"
+large = "res://assets/Art/Ships/ship_large.svg"

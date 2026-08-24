@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+red = "res://assets/Art/Passengers/passenger_red.svg"
+blue = "res://assets/Art/Passengers/passenger_blue.svg"
+green = "res://assets/Art/Passengers/passenger_green.svg"
+yellow = "res://assets/Art/Passengers/passenger_yellow.svg"
