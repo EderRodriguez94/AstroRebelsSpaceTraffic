@@ -10,7 +10,9 @@ public sealed class ProgressionTests
         var progress = LevelProgression.Create().RecordWin(1).RecordWin(1);
         Assert.Equal(2, progress.HighestUnlockedLevel);
         Assert.Single(progress.CompletedLevels);
-        Assert.Equal(progress, progress.Clamp(8));
+        var safe = progress.Clamp(8);
+        Assert.Equal(progress.HighestUnlockedLevel, safe.HighestUnlockedLevel);
+        Assert.Equal(progress.CompletedLevels, safe.CompletedLevels);
     }
 
     [Fact]
