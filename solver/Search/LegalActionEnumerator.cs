@@ -1,7 +1,7 @@
 using AstroRebelsTraffic.Domain.Rules.Release;
 using AstroRebelsTraffic.Domain.State;
 
-namespace AstroRebelsTraffic.Solver.Actions;
+namespace AstroRebelsTraffic.Solver.Search;
 
 public sealed record LegalAction(ShipId ShipId);
 

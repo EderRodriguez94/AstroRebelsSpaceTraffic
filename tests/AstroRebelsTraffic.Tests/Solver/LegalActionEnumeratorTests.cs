@@ -1,5 +1,5 @@
 using AstroRebelsTraffic.Domain.State;
-using AstroRebelsTraffic.Solver.Actions;
+using AstroRebelsTraffic.Solver.Search;
 
 namespace AstroRebelsTraffic.Tests.Solver;
 
