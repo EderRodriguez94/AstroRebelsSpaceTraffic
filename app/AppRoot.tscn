@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource path="res://app/AppBootstrap.gd" type="Script" id="1"]
 [ext_resource path="res://app/ScreenHost.gd" type="Script" id="2"]
+[ext_resource path="res://presentation/Screens/MainMenu.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://presentation/Screens/LevelSelect.tscn" type="PackedScene" id="4"]
+[ext_resource path="res://presentation/Gameplay/GameplayScreen.tscn" type="PackedScene" id="5"]
+[ext_resource path="res://presentation/Screens/Settings.tscn" type="PackedScene" id="6"]
 
 [node name="AppRoot" type="Node"]
 script = ExtResource("1")
@@ -9,3 +13,11 @@ screen_host = NodePath("ScreenHost")
 
 [node name="ScreenHost" type="Node" parent="."]
 script = ExtResource("2")
+
+[node name="MainMenu" parent="ScreenHost" instance=ExtResource("3")]
+
+[node name="LevelSelect" parent="ScreenHost" instance=ExtResource("4")]
+
+[node name="Gameplay" parent="ScreenHost" instance=ExtResource("5")]
+
+[node name="Settings" parent="ScreenHost" instance=ExtResource("6")]
