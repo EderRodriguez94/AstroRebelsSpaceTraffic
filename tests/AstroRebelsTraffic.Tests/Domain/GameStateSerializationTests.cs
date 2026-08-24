@@ -13,6 +13,7 @@ public sealed class GameStateSerializationTests
         Assert.Equal(first, GameStateSerializer.Serialize(state));
         Assert.Contains("\"schema_version\":1", first);
         GameStateSerializer.EnsureSupportedSchema(first);
+        Assert.Equal(first, GameStateSerializer.Serialize(GameStateSerializer.Deserialize(first)));
     }
 
     [Fact]

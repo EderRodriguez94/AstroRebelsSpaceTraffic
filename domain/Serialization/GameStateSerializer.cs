@@ -53,4 +53,36 @@ public static class GameStateSerializer
             ?? throw new FormatException("Missing schema_version.");
         if (version > CurrentSchemaVersion) throw new NotSupportedException($"Unsupported future schema version: {version}.");
     }
+
+    public static GameState Deserialize(string serialized)
+    {
+        EnsureSupportedSchema(serialized);
+        using var document = JsonDocument.Parse(serialized);
+        var root = document.RootElement;
+        var ships = root.GetProperty("ships").EnumerateArray().Select(ship => new ShipState(
+            new ShipId(ship.GetProperty("id").GetString()!), new ZoneId(ship.GetProperty("zone").GetString()!),
+            ship.GetProperty("color").GetString()!, DomainEnumSerialization.Parse<ShipSize>(ship.GetProperty("size").GetString()!),
+            new GridCell(ship.GetProperty("anchor_x").GetInt32(), ship.GetProperty("anchor_y").GetInt32()),
+            DomainEnumSerialization.Parse<Direction>(ship.GetProperty("direction").GetString()!),
+            DomainEnumSerialization.Parse<SpecialType>(ship.GetProperty("special").GetString()!),
+            ship.GetProperty("passengers").GetInt32(), ship.GetProperty("revealed").GetBoolean())).ToArray();
+        var shipMap = ships.ToDictionary(ship => ship.ShipId);
+        var zones = root.GetProperty("zones").EnumerateArray().Select(zone => new GridState.Zone(
+            new ZoneId(zone.GetProperty("id").GetString()!), zone.GetProperty("width").GetInt32(), zone.GetProperty("height").GetInt32(),
+            zone.GetProperty("ships").EnumerateArray().Select(id => new ShipId(id.GetString()!))));
+        var queue = new PassengerQueueState(ReadGroups(root.GetProperty("queue")));
+        var preQueue = new PreQueueState(ReadGroups(root.GetProperty("prequeue")));
+        var docks = root.GetProperty("docks").EnumerateArray().Select(dock =>
+        {
+            var result = DockState.CreateInitial().Single(item => item.VisualIndex == dock.GetProperty("index").GetInt32());
+            if (dock.GetProperty("active").GetBoolean()) result = result.Activate();
+            var ship = dock.GetProperty("ship");
+            return ship.ValueKind == JsonValueKind.String ? result.WithOccupant(shipMap[new ShipId(ship.GetString()!)]) : result;
+        }).ToArray();
+        return GameState.Create(root.GetProperty("level_id").GetString()!, new GridState(zones), ships, queue, preQueue, docks,
+            root.GetProperty("attempt_id").GetString()!, DomainEnumSerialization.Parse<GamePhase>(root.GetProperty("phase").GetString()!), root.GetProperty("move_index").GetInt32(), tutorialState: root.GetProperty("tutorial").GetString()!);
+    }
+
+    private static IEnumerable<PassengerGroup> ReadGroups(JsonElement element) =>
+        element.EnumerateArray().Select(group => PassengerGroup.CreateEntry(group.GetProperty("color").GetString()!, group.GetProperty("size").GetInt32()));
 }
