@@ -18,4 +18,10 @@ public sealed record DockState
         if (!IsActive && occupant is not null) throw new InvalidOperationException("Inactive docks cannot have occupants.");
         return new DockState(VisualIndex, IsActive, occupant);
     }
+
+    public DockState Activate()
+    {
+        if (IsActive) return this;
+        return new DockState(VisualIndex, true, null);
+    }
 }
