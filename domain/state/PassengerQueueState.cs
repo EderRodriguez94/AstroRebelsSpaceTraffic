@@ -4,7 +4,12 @@ public sealed class PassengerQueueState
 {
     public IReadOnlyList<PassengerGroup> Groups { get; }
 
-    public PassengerQueueState(IEnumerable<PassengerGroup> groups) => Groups = groups.ToArray();
+    public PassengerQueueState(IEnumerable<PassengerGroup> groups)
+    {
+        var copy = groups.ToArray();
+        if (copy.Any(group => group.Size is not (4 or 8 or 16))) throw new ArgumentOutOfRangeException(nameof(groups), "Main source groups must contain 4, 8 or 16 passengers.");
+        Groups = copy;
+    }
 
     public PassengerGroup? Front => Groups.Count == 0 ? null : Groups[0];
 
