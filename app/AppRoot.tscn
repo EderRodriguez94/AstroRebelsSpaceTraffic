@@ -4,7 +4,7 @@
 [ext_resource path="res://app/ScreenHost.gd" type="Script" id="2"]
 [ext_resource path="res://presentation/Screens/MainMenu.tscn" type="PackedScene" id="3"]
 [ext_resource path="res://presentation/Screens/LevelSelect.tscn" type="PackedScene" id="4"]
-[ext_resource path="res://presentation/Gameplay/GameplayScreen.tscn" type="PackedScene" id="5"]
+[ext_resource path="res://presentation/gameplay/GameplayScreen.tscn" type="PackedScene" id="5"]
 [ext_resource path="res://presentation/Screens/Settings.tscn" type="PackedScene" id="6"]
 
 [node name="AppRoot" type="Node"]
