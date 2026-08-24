@@ -36,10 +36,24 @@ public static class GameStateInvariantChecker
         foreach (var dock in state.Docks.OrderBy(dock => dock.VisualIndex))
         {
             if (!dock.IsActive && dock.Occupant is not null) violations.Add(new("INACTIVE_DOCK_OCCUPANT", $"docks[{dock.VisualIndex}].occupant"));
-            if (dock.Occupant is not null) AddLocation(dock.Occupant, $"docks[{dock.VisualIndex}].occupant");
+            if (dock.Occupant is not null)
+            {
+                if (!state.ShipsById.ContainsKey(dock.Occupant.ShipId)) violations.Add(new("UNKNOWN_DOCK_SHIP", $"docks[{dock.VisualIndex}].occupant"));
+                AddLocation(dock.Occupant, $"docks[{dock.VisualIndex}].occupant");
+            }
         }
-        if (state.VipDock is not null) AddLocation(state.VipDock, "vip_dock");
-        foreach (var ship in state.Reserve.OrderBy(ship => ship.ShipId.Value, StringComparer.Ordinal)) AddLocation(ship, $"reserve[{ship.ShipId}]");
+        if (state.Docks.Count != 8) violations.Add(new("DOCK_COUNT", "docks"));
+        if (state.Docks.Select(dock => dock.VisualIndex).Distinct().Count() != state.Docks.Count) violations.Add(new("DUPLICATE_DOCK_INDEX", "docks"));
+        if (state.VipDock is not null)
+        {
+            if (!state.ShipsById.ContainsKey(state.VipDock.ShipId)) violations.Add(new("UNKNOWN_VIP_SHIP", "vip_dock"));
+            AddLocation(state.VipDock, "vip_dock");
+        }
+        foreach (var ship in state.Reserve.OrderBy(ship => ship.ShipId.Value, StringComparer.Ordinal))
+        {
+            if (!state.ShipsById.ContainsKey(ship.ShipId)) violations.Add(new("UNKNOWN_RESERVE_SHIP", $"reserve[{ship.ShipId}]"));
+            AddLocation(ship, $"reserve[{ship.ShipId}]");
+        }
         foreach (var location in locations.OrderBy(pair => pair.Key.Value, StringComparer.Ordinal))
             if (location.Value.Count > 1)
                 violations.Add(new("MULTIPLE_SHIP_LOCATIONS", $"ships_by_id.{location.Key}.locations"));

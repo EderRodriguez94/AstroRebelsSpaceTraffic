@@ -32,4 +32,13 @@ public class InvariantCheckerTests
         var violation = Assert.Single(GameStateInvariantChecker.Check(state), item => item.Code == "UNKNOWN_GRID_SHIP");
         Assert.Equal("zones[zone].ship_ids[missing]", violation.Path);
     }
+
+    [Fact]
+    public void Reports_a_dock_collection_that_is_not_the_canonical_eight_docks()
+    {
+        var state = GameState.CreateInitial("level", new GridState(new[] { new GridState.Zone(new ZoneId("zone"), 2, 2, Array.Empty<ShipId>()) }), Array.Empty<ShipState>(), new PassengerQueueState(Array.Empty<PassengerGroup>()), new PreQueueState(Array.Empty<PassengerGroup>()), DockState.CreateInitial().Take(4));
+
+        var violation = Assert.Single(GameStateInvariantChecker.Check(state), item => item.Code == "DOCK_COUNT");
+        Assert.Equal("docks", violation.Path);
+    }
 }
