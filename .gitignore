@@ -1,0 +1,10 @@
+.godot/
+**/bin/
+**/obj/
+TestResults/
+**/TestResults/
+.vs/
+*.user
+*.suo
+*.secret
+*.pfx
