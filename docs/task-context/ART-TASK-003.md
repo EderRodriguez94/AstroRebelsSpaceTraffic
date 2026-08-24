@@ -132,5 +132,5 @@ Generated/imported Godot metadata stays in engine-standard locations and MUST no
 ---
 
 ## Source files
-- C:\Users\eorod\Desktop\Proyectos\juegos\AstroRebelsSpaceTraffic\docs\ASTRO_REBELS_TRAFFIC_MASTER_SPEC_EN.md - BA9E820719788E586D19EDB3D77E5CDE01C11AD99929399D433EABAFC70A18E5
-- C:\Users\eorod\Desktop\Proyectos\juegos\AstroRebelsSpaceTraffic\docs\ASTRO_REBELS_TRAFFIC_ARCHITECTURE_EN.md - 9C077B9DA8D404FE1394CA12B71B9C4706B93B47742F8FE189C08703180C6B3E
+- C:\Users\eorod\Desktop\Proyectos\juegos\AstroRebelsSpaceTraffic\docs\ASTRO_REBELS_TRAFFIC_MASTER_SPEC_EN.md
+- C:\Users\eorod\Desktop\Proyectos\juegos\AstroRebelsSpaceTraffic\docs\ASTRO_REBELS_TRAFFIC_ARCHITECTURE_EN.md

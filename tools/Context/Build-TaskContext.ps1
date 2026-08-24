@@ -44,7 +44,7 @@ try {
         if ($matches.Count -eq 0) { throw "Missing requirement ID '$id'." }; if ($matches.Count -gt 1) { throw "Duplicate requirement ID '$id' across input files." }
         $parts.Add($matches[0]); $parts.Add('')
     }
-    $parts.Add('## Source files'); foreach ($file in $files) { $hash = (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash; $parts.Add("- $file - $hash") }
+    $parts.Add('## Source files'); foreach ($file in $files) { $parts.Add("- $file") }
     $output = ($parts -join "`r`n") + "`r`n"; if ($output.Length -gt $MaxChars) { throw "Output exceeds MaxChars limit: $($output.Length) > $MaxChars." }
     $directory = Split-Path -Parent $OutputPath; if ($directory -and -not (Test-Path -LiteralPath $directory)) { New-Item -ItemType Directory -Path $directory -Force | Out-Null }
     [IO.File]::WriteAllText($OutputPath, $output, (New-Object Text.UTF8Encoding($false))); Write-Host "Context written: $OutputPath ($($output.Length) characters)"
