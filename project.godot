@@ -1,0 +1,18 @@
+; Astro Rebels Traffic - minimal project shell
+config_version=5
+
+[application]
+config/name="Astro Rebels Traffic"
+run/main_scene="res://app/AppRoot.tscn"
+
+[display]
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/handheld/orientation=1
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
+[dotnet]
+project/assembly_name="AstroRebelsTraffic"

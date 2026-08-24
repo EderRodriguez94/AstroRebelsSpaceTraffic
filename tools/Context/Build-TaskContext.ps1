@@ -33,6 +33,8 @@ function Find-Requirement([string]$Content, [string]$Id, [string]$Path) {
     return $Content.Substring($start, $end - $start).Trim()
 }
 try {
+    $SpecIds = @($SpecIds | ForEach-Object { $_ -split ',' } | Where-Object { $_ })
+    $ArchIds = @($ArchIds | ForEach-Object { $_ -split ',' } | Where-Object { $_ })
     Assert-UniqueIds $SpecIds 'Spec'; Assert-UniqueIds $ArchIds 'Arch'; $files = Get-SourceFiles
     foreach ($file in $files) { if (-not (Test-Path -LiteralPath $file -PathType Leaf)) { throw "Input file not found: '$file'." } }
     $contents = @{}; foreach ($file in $files) { $contents[$file] = Get-Content -LiteralPath $file -Raw -Encoding UTF8 }
