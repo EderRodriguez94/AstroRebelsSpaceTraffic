@@ -2,6 +2,7 @@ extends Control
 
 var selected_ship_id := ""
 var selected_button: Button
+var input_locked := false
 
 func _ready() -> void:
 	$ReleaseButton.pressed.connect(_on_release_pressed)
@@ -12,19 +13,26 @@ func _ready() -> void:
 	_refresh_board()
 
 func _on_release_pressed() -> void:
+	if input_locked:
+		return
 	if selected_ship_id.is_empty():
-		$Status.text = "Select a ship first"
+		$Status.text = "Invalid action — select a ship first"
+		$Hint.text = "Choose one of the available ships"
 		return
 	var result: String = $SessionBridge.ReleaseShip(selected_ship_id)
 	$Status.text = result
 	if result == "Ship released" or result == "Level complete":
 		_play_ship_departure()
+	else:
+		$Hint.text = "Release rejected — choose another available action"
 	_refresh_board()
 	if result == "Level complete":
 		$Hint.text = "Route complete — next level unlocked"
 		$ReleaseButton.disabled = true
 
 func _on_ship_pressed(ship_id: String, button: Button) -> void:
+	if input_locked:
+		return
 	if not selected_ship_id.is_empty() and $ReleaseButton.disabled:
 		return
 	selected_ship_id = ship_id
@@ -37,6 +45,7 @@ func _on_ship_pressed(ship_id: String, button: Button) -> void:
 	$ReleaseButton.disabled = false
 
 func _play_ship_departure() -> void:
+	input_locked = true
 	selected_button.disabled = true
 	$ReleaseButton.disabled = true
 	selected_button.text = "SHIP DEPARTING  →"
@@ -48,6 +57,7 @@ func _finish_ship_departure() -> void:
 	selected_button.visible = false
 	selected_ship_id = ""
 	selected_button = null
+	input_locked = false
 	$Hint.text = "Passengers boarded — dock assignment settled"
 
 func _refresh_board() -> void:
@@ -61,6 +71,7 @@ func _on_back_pressed() -> void:
 	get_parent().show_screen("MainMenu")
 
 func _on_restart_pressed() -> void:
+	input_locked = false
 	$SessionBridge.ResetSession()
 	selected_ship_id = ""
 	selected_button = null
