@@ -6,6 +6,7 @@ var selected_button: Button
 func _ready() -> void:
 	$ReleaseButton.pressed.connect(_on_release_pressed)
 	$BackButton.pressed.connect(_on_back_pressed)
+	$RestartButton.pressed.connect(_on_restart_pressed)
 	$Board/BlueShipButton.pressed.connect(_on_ship_pressed.bind("tutorial-blue", $Board/BlueShipButton))
 	$Board/RedShipButton.pressed.connect(_on_ship_pressed.bind("tutorial-red", $Board/RedShipButton))
 	_refresh_board()
@@ -57,3 +58,22 @@ func _refresh_board() -> void:
 
 func _on_back_pressed() -> void:
 	get_parent().show_screen("MainMenu")
+
+func _on_restart_pressed() -> void:
+	$SessionBridge.ResetSession()
+	selected_ship_id = ""
+	selected_button = null
+	$Board/BlueShipButton.visible = true
+	$Board/RedShipButton.visible = true
+	$Board/BlueShipButton.position.x = 70.0
+	$Board/RedShipButton.position.x = 340.0
+	$Board/BlueShipButton.disabled = false
+	$Board/RedShipButton.disabled = false
+	$Board/BlueShipButton.text = "BLUE SHIP  •  RIGHT"
+	$Board/RedShipButton.text = "RED SHIP  •  RIGHT"
+	$Board/BlueShipButton.modulate = Color.WHITE
+	$Board/RedShipButton.modulate = Color.WHITE
+	$ReleaseButton.disabled = true
+	$Status.text = "Level 1  •  Route the first passengers"
+	$Hint.text = "Select a ship to choose an action"
+	_refresh_board()

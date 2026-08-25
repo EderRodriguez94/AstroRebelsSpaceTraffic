@@ -12,6 +12,11 @@ public partial class GameplaySessionBridge : Node
 
     public override void _Ready()
     {
+        ResetSession();
+    }
+
+    public void ResetSession()
+    {
         var zone = new ZoneId("tutorial-zone");
         var blueId = new ShipId("tutorial-blue");
         var redId = new ShipId("tutorial-red");
