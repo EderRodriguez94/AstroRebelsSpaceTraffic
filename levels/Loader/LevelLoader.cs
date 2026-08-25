@@ -34,7 +34,13 @@ public static class LevelLoader
                 zones.Add(new GridState.Zone(new ZoneId(zoneId), zone.GetProperty("width").GetInt32(), zone.GetProperty("height").GetInt32(), ids));
             }
             var capacity = root.TryGetProperty("prequeue_capacity", out var cap) ? cap.GetInt32() : 16;
-            var state = GameState.Create(levelId, new GridState(zones), ships, new PassengerQueueState(Array.Empty<PassengerGroup>()), new PreQueueState(Array.Empty<PassengerGroup>(), capacity), DockState.CreateInitial());
+            var queue = new List<PassengerGroup>();
+            if (root.TryGetProperty("passenger_queue", out var queueElement))
+            {
+                foreach (var group in queueElement.EnumerateArray())
+                    queue.Add(new PassengerGroup(group.GetProperty("color").GetString()!, group.GetProperty("size").GetInt32()));
+            }
+            var state = GameState.Create(levelId, new GridState(zones), ships, new PassengerQueueState(queue), new PreQueueState(Array.Empty<PassengerGroup>(), capacity), DockState.CreateInitial());
             return new(true, state, Array.Empty<LevelLoadError>());
         }
         catch (KeyNotFoundException ex) { return LevelLoadResult.Failure(new LevelLoadError("$", "REQUIRED", ex.Message)); }

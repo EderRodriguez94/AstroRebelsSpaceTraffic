@@ -1,1 +1,1 @@
-{"schema_version":1,"level_id":"tutorial-03-docks","zones":[{"id":"zone-a","width":2,"height":2,"ships":[{"id":"ship-a","color":"green","size":"Small","direction":"Right","passengers":0}]}]}
+{"schema_version":1,"level_id":"tutorial-03-docks","passenger_queue":[{"color":"green","size":4}],"zones":[{"id":"zone-a","width":2,"height":2,"ships":[{"id":"ship-a","color":"green","size":"Small","direction":"Right","passengers":0}]}]}

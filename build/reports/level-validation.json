@@ -1,67 +1,58 @@
 {
-  "generated_at_utc": "2026-08-25T01:29:17.7342888Z",
+  "generated_at_utc": "2026-08-25T01:34:20.8397337Z",
   "source": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial",
   "entries": [
     {
       "level_id": "tutorial-01-clear-release",
       "path": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial\\01-clear-release.json",
       "valid_shape": true,
-      "solver": "unsolved"
+      "solver": "solved"
     },
     {
       "level_id": "tutorial-02-matching",
       "path": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial\\02-matching.json",
       "valid_shape": true,
-      "solver": "unsolved"
+      "solver": "solved"
     },
     {
       "level_id": "tutorial-03-docks",
       "path": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial\\03-docks.json",
       "valid_shape": true,
-      "solver": "unsolved"
+      "solver": "solved"
     },
     {
       "level_id": "tutorial-04-wrong-color-pressure",
       "path": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial\\04-wrong-color-pressure.json",
       "valid_shape": true,
-      "solver": "unsolved"
+      "solver": "solved"
     },
     {
       "level_id": "tutorial-05-directions",
       "path": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial\\05-directions.json",
       "valid_shape": true,
-      "solver": "unsolved"
+      "solver": "solved"
     },
     {
       "level_id": "tutorial-06-medium",
       "path": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial\\06-medium.json",
       "valid_shape": true,
-      "solver": "unsolved"
+      "solver": "solved"
     },
     {
       "level_id": "tutorial-07-large",
       "path": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial\\07-large.json",
       "valid_shape": true,
-      "solver": "unsolved"
+      "solver": "solved"
     },
     {
       "level_id": "tutorial-08-prequeue",
       "path": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial\\08-prequeue.json",
       "valid_shape": true,
-      "solver": "unsolved"
+      "solver": "solved"
     }
   ],
   "entry_count": 8,
   "shape_valid": true,
-  "solver_status": "failed",
-  "errors": [
-    "01-clear-release.json:solver",
-    "02-matching.json:solver",
-    "03-docks.json:solver",
-    "04-wrong-color-pressure.json:solver",
-    "05-directions.json:solver",
-    "06-medium.json:solver",
-    "07-large.json:solver",
-    "08-prequeue.json:solver"
-  ]
+  "solver_status": "solved",
+  "errors": []
 }

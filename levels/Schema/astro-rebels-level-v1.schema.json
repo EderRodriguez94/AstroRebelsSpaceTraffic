@@ -3,11 +3,12 @@
   "$id": "astro-rebels-level-v1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "level_id", "zones"],
+  "required": ["schema_version", "level_id", "zones", "passenger_queue"],
   "properties": {
     "schema_version": { "const": 1 },
     "level_id": { "type": "string", "minLength": 1 },
     "prequeue_capacity": { "type": "integer", "minimum": 1, "default": 16 },
+    "passenger_queue": { "type": "array", "items": { "$ref": "#/$defs/passenger_group" } },
     "zones": { "type": "array", "minItems": 1, "items": {
       "type": "object", "additionalProperties": false,
       "required": ["id", "width", "height", "ships"],
@@ -19,7 +20,7 @@
       }
     } }
   },
-  "$defs": { "ship": { "type": "object", "additionalProperties": false, "required": ["id", "color", "size", "direction"], "properties": {
+  "$defs": { "passenger_group": { "type": "object", "additionalProperties": false, "required": ["color", "size"], "properties": { "color": { "type": "string", "minLength": 1 }, "size": { "enum": [4, 8, 16] } } }, "ship": { "type": "object", "additionalProperties": false, "required": ["id", "color", "size", "direction"], "properties": {
     "id": { "type": "string", "minLength": 1 }, "color": { "type": "string", "minLength": 1 },
     "size": { "enum": ["Small", "Medium", "Large"] }, "direction": { "enum": ["Up", "Down", "Left", "Right"] },
     "passengers": { "type": "integer", "minimum": 0 }

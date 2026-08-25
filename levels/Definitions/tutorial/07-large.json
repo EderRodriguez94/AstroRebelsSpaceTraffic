@@ -1,1 +1,1 @@
-{"schema_version":1,"level_id":"tutorial-07-large","zones":[{"id":"zone-a","width":4,"height":4,"ships":[{"id":"ship-a","color":"blue","size":"Large","direction":"Right","passengers":0}]}]}
+{"schema_version":1,"level_id":"tutorial-07-large","passenger_queue":[{"color":"blue","size":16}],"zones":[{"id":"zone-a","width":4,"height":4,"ships":[{"id":"ship-a","color":"blue","size":"Large","direction":"Right","passengers":0}]}]}
