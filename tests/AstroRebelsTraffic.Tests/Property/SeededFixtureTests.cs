@@ -1,5 +1,6 @@
 using AstroRebelsTraffic.Generator;
 using AstroRebelsTraffic.Levels.Loader;
+using AstroRebelsTraffic.Domain.State;
 
 namespace AstroRebelsTraffic.Tests.Property;
 
@@ -24,5 +25,19 @@ public sealed class SeededFixtureTests
                 throw new Xunit.Sdk.XunitException($"seed={seed}; minimized-fixture=generated-level; {error.Message}", error);
             }
         }
+    }
+
+    [Fact]
+    public void Queue_operations_conserve_passenger_count()
+    {
+        var source = new[] { new PassengerGroup("blue", 4), new PassengerGroup("red", 8) };
+        var queue = new PassengerQueueState(source);
+        var before = queue.Groups.Sum(group => group.Size);
+        var (consumed, remaining) = queue.ConsumeFront();
+        Assert.Equal(before, consumed.Size + remaining.Groups.Sum(group => group.Size));
+
+        var preQueue = new PreQueueState(Array.Empty<PassengerGroup>(), 16);
+        var afterAppend = preQueue.Append(new PassengerGroup("green", 4));
+        Assert.Equal(4, afterAppend.PassengerCount);
     }
 }
