@@ -135,6 +135,17 @@ theme_override_font_sizes/font_size = 22
 text = "EXIT PATH  •  Loading..."
 horizontal_alignment = 1
 
+[node name="PhaseState" type="Label" parent="Board"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 450.0
+offset_right = 612.0
+offset_bottom = 495.0
+theme_override_colors/font_color = Color(0.8, 0.86, 0.96, 1)
+theme_override_font_sizes/font_size = 20
+text = "SESSION  •  LOADING..."
+horizontal_alignment = 1
+
 [node name="DockState" type="Label" parent="Board"]
 layout_mode = 0
 offset_left = 28.0

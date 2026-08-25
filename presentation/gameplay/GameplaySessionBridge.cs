@@ -74,4 +74,10 @@ public partial class GameplaySessionBridge : Node
         var blocked = paths.Count(path => !path.IsClear);
         return blocked == 0 ? "EXIT PATHS  •  ALL CLEAR  →" : $"EXIT PATHS  •  {blocked} BLOCKED";
     }
+
+    public string GetPhaseSummary()
+    {
+        if (session is null) return "SESSION  •  Loading...";
+        return $"SESSION  •  {session.State.Phase.ToString().ToUpperInvariant()}";
+    }
 }
