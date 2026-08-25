@@ -29,6 +29,7 @@ func _refresh_board() -> void:
 	$Board/BoardState.text = $SessionBridge.GetBoardSummary()
 	$Board/DockState.text = $SessionBridge.GetDockSummary()
 	$Board/QueueState.text = $SessionBridge.GetQueueSummary()
+	$Board/PathState.text = $SessionBridge.GetPathSummary()
 
 func _on_back_pressed() -> void:
 	get_parent().show_screen("MainMenu")

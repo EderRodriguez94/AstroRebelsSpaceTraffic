@@ -2,6 +2,7 @@ using Godot;
 using AstroRebelsTraffic.Application.GameSession;
 using AstroRebelsTraffic.Domain.Commands;
 using AstroRebelsTraffic.Domain.State;
+using AstroRebelsTraffic.Domain.Rules.Grid;
 
 namespace AstroRebelsTraffic.Presentation.Gameplay;
 
@@ -56,5 +57,12 @@ public partial class GameplaySessionBridge : Node
         if (session is null) return "PASSENGERS  •  Loading...";
         var waiting = session.State.PassengerQueue.Groups.Sum(group => group.Size);
         return $"PASSENGERS  •  {waiting} waiting";
+    }
+
+    public string GetPathSummary()
+    {
+        if (session is null) return "EXIT PATH  •  Loading...";
+        var path = PathValidator.GetExitPath(session.State, new ShipId("tutorial-ship"));
+        return path.IsClear ? "EXIT PATH  •  CLEAR  →" : "EXIT PATH  •  BLOCKED";
     }
 }

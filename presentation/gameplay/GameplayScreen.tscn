@@ -105,6 +105,17 @@ theme_override_font_sizes/font_size = 16
 text = "Tap a ship to select an action"
 horizontal_alignment = 1
 
+[node name="PathState" type="Label" parent="Board"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 390.0
+offset_right = 612.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0.35, 0.95, 0.65, 1)
+theme_override_font_sizes/font_size = 22
+text = "EXIT PATH  •  Loading..."
+horizontal_alignment = 1
+
 [node name="DockState" type="Label" parent="Board"]
 layout_mode = 0
 offset_left = 28.0
