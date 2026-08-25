@@ -6,6 +6,7 @@ namespace AstroRebelsTraffic.Tests.Property;
 
 public sealed class SeededFixtureTests
 {
+    // Traceability: ART-SPEC-QA-003, ART-ARCH-TEST-001, ART-ARCH-TEST-002, ART-ARCH-TEST-004.
     [Fact]
     public void Generated_fixtures_are_valid_for_a_reproducible_seed_set()
     {
