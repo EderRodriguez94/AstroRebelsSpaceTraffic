@@ -13,17 +13,20 @@ public partial class GameplaySessionBridge : Node
     public override void _Ready()
     {
         var zone = new ZoneId("tutorial-zone");
-        var shipId = new ShipId("tutorial-ship");
-        var ship = new ShipState(shipId, zone, "blue", ShipSize.Small, new GridCell(0, 0), Direction.Right,
+        var blueId = new ShipId("tutorial-blue");
+        var redId = new ShipId("tutorial-red");
+        var blue = new ShipState(blueId, zone, "blue", ShipSize.Small, new GridCell(0, 0), Direction.Right,
             SpecialType.Normal, 1, true);
-        var grid = new GridState(new[] { new GridState.Zone(zone, 3, 1, new[] { shipId }) });
-        session = new GameSession(GameState.CreateInitial("level-1", grid, new[] { ship },
+        var red = new ShipState(redId, zone, "red", ShipSize.Small, new GridCell(0, 1), Direction.Right,
+            SpecialType.Normal, 1, true);
+        var grid = new GridState(new[] { new GridState.Zone(zone, 3, 2, new[] { blueId, redId }) });
+        session = new GameSession(GameState.CreateInitial("level-1", grid, new[] { blue, red },
             new PassengerQueueState(new[] { new PassengerGroup("red", 4) }), new PreQueueState(Array.Empty<PassengerGroup>()),
             DockState.CreateInitial()));
     }
 
     public string ReleaseFirstShip()
-        => ReleaseShip("tutorial-ship");
+        => ReleaseShip("tutorial-blue");
 
     public string ReleaseShip(string shipId)
     {
@@ -62,7 +65,8 @@ public partial class GameplaySessionBridge : Node
     public string GetPathSummary()
     {
         if (session is null) return "EXIT PATH  •  Loading...";
-        var path = PathValidator.GetExitPath(session.State, new ShipId("tutorial-ship"));
-        return path.IsClear ? "EXIT PATH  •  CLEAR  →" : "EXIT PATH  •  BLOCKED";
+        var paths = session.State.ShipsById.Values.Select(ship => PathValidator.GetExitPath(session.State, ship.ShipId));
+        var blocked = paths.Count(path => !path.IsClear);
+        return blocked == 0 ? "EXIT PATHS  •  ALL CLEAR  →" : $"EXIT PATHS  •  {blocked} BLOCKED";
     }
 }

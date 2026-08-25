@@ -84,15 +84,25 @@ theme_override_font_sizes/font_size = 22
 text = "GRID  •  Loading board..."
 horizontal_alignment = 1
 
-[node name="ShipButton" type="Button" parent="Board"]
+[node name="BlueShipButton" type="Button" parent="Board"]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 70.0
 offset_top = 140.0
-offset_right = 530.0
+offset_right = 320.0
 offset_bottom = 220.0
 theme_override_colors/font_color = Color(0.35, 0.85, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "BLUE SHIP  •  RIGHT"
+
+[node name="RedShipButton" type="Button" parent="Board"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 140.0
+offset_right = 590.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(1, 0.45, 0.45, 1)
+theme_override_font_sizes/font_size = 22
+text = "RED SHIP  •  RIGHT"
 
 [node name="ShipCaption" type="Label" parent="Board"]
 layout_mode = 0
@@ -102,7 +112,7 @@ offset_right = 605.0
 offset_bottom = 260.0
 theme_override_colors/font_color = Color(0.55, 0.68, 0.82, 1)
 theme_override_font_sizes/font_size = 16
-text = "Tap a ship to select an action"
+text = "Select a ship to choose an action"
 horizontal_alignment = 1
 
 [node name="PathState" type="Label" parent="Board"]
