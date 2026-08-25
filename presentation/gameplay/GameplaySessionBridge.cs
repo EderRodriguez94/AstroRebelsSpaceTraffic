@@ -23,12 +23,13 @@ public partial class GameplaySessionBridge : Node
         var blueId = new ShipId("tutorial-blue");
         var redId = new ShipId("tutorial-red");
         var blue = new ShipState(blueId, zone, "blue", ShipSize.Small, new GridCell(0, 0), Direction.Right,
-            SpecialType.Normal, 1, true);
+            SpecialType.Normal, 0, true);
         var red = new ShipState(redId, zone, "red", ShipSize.Small, new GridCell(0, 1), Direction.Right,
-            SpecialType.Normal, 1, true);
+            SpecialType.Normal, 0, true);
         var grid = new GridState(new[] { new GridState.Zone(zone, 3, 2, new[] { blueId, redId }) });
         session = new GameSession(GameState.CreateInitial("level-1", grid, new[] { blue, red },
-            new PassengerQueueState(new[] { new PassengerGroup("red", 4) }), new PreQueueState(Array.Empty<PassengerGroup>()),
+            new PassengerQueueState(new[] { new PassengerGroup("blue", 4), new PassengerGroup("red", 4) }),
+            new PreQueueState(Array.Empty<PassengerGroup>()),
             DockState.CreateInitial()));
     }
 

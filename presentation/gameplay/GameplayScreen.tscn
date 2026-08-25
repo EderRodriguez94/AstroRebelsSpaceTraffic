@@ -39,9 +39,9 @@ horizontal_alignment = 1
 [node name="Status" type="Label" parent="."]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 150.0
+offset_top = 104.0
 offset_right = 696.0
-offset_bottom = 210.0
+offset_bottom = 148.0
 theme_override_colors/font_color = Color(0.8, 0.86, 0.96, 1)
 theme_override_font_sizes/font_size = 22
 text = "Level 1  •  Route the first passengers"
@@ -54,7 +54,7 @@ offset_top = 960.0
 offset_right = 600.0
 offset_bottom = 1030.0
 theme_override_font_sizes/font_size = 24
-text = "RELEASE SHIP"
+text = "RELEASE SELECTED SHIP  →"
 disabled = true
 
 [node name="BackButton" type="Button" parent="."]
@@ -88,26 +88,26 @@ disabled = true
 [node name="Board" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 280.0
+offset_top = 190.0
 offset_right = 680.0
-offset_bottom = 900.0
+offset_bottom = 890.0
 color = Color(0.07, 0.1, 0.18, 1)
 
 [node name="VisualGrid" type="Control" parent="Board"]
 layout_mode = 0
-offset_left = 30.0
+offset_left = 40.0
 offset_top = 20.0
-offset_right = 610.0
-offset_bottom = 260.0
+offset_right = 600.0
+offset_bottom = 270.0
 mouse_filter = 2
 script = ExtResource("3")
 
 [node name="BoardState" type="Label" parent="Board"]
 layout_mode = 0
 offset_left = 28.0
-offset_top = 70.0
+offset_top = 280.0
 offset_right = 612.0
-offset_bottom = 115.0
+offset_bottom = 320.0
 theme_override_colors/font_color = Color(0.45, 0.85, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "GRID  •  Loading board..."
@@ -115,20 +115,20 @@ horizontal_alignment = 1
 
 [node name="BlueShipButton" type="Button" parent="Board"]
 layout_mode = 0
-offset_left = 70.0
-offset_top = 140.0
-offset_right = 320.0
-offset_bottom = 220.0
+offset_left = 35.0
+offset_top = 335.0
+offset_right = 305.0
+offset_bottom = 415.0
 theme_override_colors/font_color = Color(0.35, 0.85, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "BLUE SHIP  •  RIGHT"
 
 [node name="RedShipButton" type="Button" parent="Board"]
 layout_mode = 0
-offset_left = 340.0
-offset_top = 140.0
-offset_right = 590.0
-offset_bottom = 220.0
+offset_left = 335.0
+offset_top = 335.0
+offset_right = 605.0
+offset_bottom = 415.0
 theme_override_colors/font_color = Color(1, 0.45, 0.45, 1)
 theme_override_font_sizes/font_size = 22
 text = "RED SHIP  •  RIGHT"
@@ -136,9 +136,9 @@ text = "RED SHIP  •  RIGHT"
 [node name="ShipCaption" type="Label" parent="Board"]
 layout_mode = 0
 offset_left = 35.0
-offset_top = 225.0
+offset_top = 425.0
 offset_right = 605.0
-offset_bottom = 260.0
+offset_bottom = 455.0
 theme_override_colors/font_color = Color(0.55, 0.68, 0.82, 1)
 theme_override_font_sizes/font_size = 16
 text = "Select a ship to choose an action"
@@ -147,9 +147,9 @@ horizontal_alignment = 1
 [node name="PathState" type="Label" parent="Board"]
 layout_mode = 0
 offset_left = 28.0
-offset_top = 390.0
+offset_top = 555.0
 offset_right = 612.0
-offset_bottom = 435.0
+offset_bottom = 595.0
 theme_override_colors/font_color = Color(0.35, 0.95, 0.65, 1)
 theme_override_font_sizes/font_size = 22
 text = "EXIT PATH  •  Loading..."
@@ -158,9 +158,9 @@ horizontal_alignment = 1
 [node name="PhaseState" type="Label" parent="Board"]
 layout_mode = 0
 offset_left = 28.0
-offset_top = 450.0
+offset_top = 605.0
 offset_right = 612.0
-offset_bottom = 495.0
+offset_bottom = 645.0
 theme_override_colors/font_color = Color(0.8, 0.86, 0.96, 1)
 theme_override_font_sizes/font_size = 20
 text = "SESSION  •  LOADING..."
@@ -169,9 +169,9 @@ horizontal_alignment = 1
 [node name="DockState" type="Label" parent="Board"]
 layout_mode = 0
 offset_left = 28.0
-offset_top = 270.0
+offset_top = 475.0
 offset_right = 612.0
-offset_bottom = 315.0
+offset_bottom = 515.0
 theme_override_colors/font_color = Color(0.8, 0.86, 0.96, 1)
 theme_override_font_sizes/font_size = 20
 text = "DOCKS  •  Loading..."
@@ -180,9 +180,9 @@ horizontal_alignment = 1
 [node name="QueueState" type="Label" parent="Board"]
 layout_mode = 0
 offset_left = 28.0
-offset_top = 330.0
+offset_top = 515.0
 offset_right = 612.0
-offset_bottom = 375.0
+offset_bottom = 555.0
 theme_override_colors/font_color = Color(0.8, 0.86, 0.96, 1)
 theme_override_font_sizes/font_size = 20
 text = "PASSENGERS  •  Loading..."
@@ -191,9 +191,9 @@ horizontal_alignment = 1
 [node name="Hint" type="Label" parent="."]
 layout_mode = 0
 offset_left = 60.0
-offset_top = 510.0
+offset_top = 905.0
 offset_right = 660.0
-offset_bottom = 570.0
+offset_bottom = 950.0
 theme_override_colors/font_color = Color(0.55, 0.68, 0.82, 1)
 theme_override_font_sizes/font_size = 20
 text = "Gameplay board ready"

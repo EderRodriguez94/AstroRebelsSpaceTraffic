@@ -8,3 +8,20 @@ TestResults/
 *.suo
 *.secret
 *.pfx
+
+# Godot/.NET local state and generated imports
+.dotnet-home/
+.godot-appdata/
+.godot-config/
+.godot-user/
+*.uid
+*.import
+
+# Local build output and runtime logs
+build/android/
+build/reports/*.log
+*.log
+emulator.log
+
+# Local orchestration scripts/state are not part of the game repository
+automation/

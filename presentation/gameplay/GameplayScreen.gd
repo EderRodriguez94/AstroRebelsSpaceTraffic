@@ -35,15 +35,14 @@ func _on_release_pressed() -> void:
 func _on_ship_pressed(ship_id: String, button: Button) -> void:
 	if input_locked:
 		return
-	if not selected_ship_id.is_empty() and $ReleaseButton.disabled:
-		return
+	_reset_ship_button_labels()
 	selected_ship_id = ship_id
 	selected_button = button
-	$Board/BlueShipButton.modulate = Color.WHITE
-	$Board/RedShipButton.modulate = Color.WHITE
 	button.modulate = Color(0.45, 0.95, 1.0)
-	button.text = "SELECTED  •  " + ("BLUE" if ship_id == "tutorial-blue" else "RED") + "  •  RIGHT"
+	var ship_name := "BLUE" if ship_id == "tutorial-blue" else "RED"
+	button.text = "SELECTED  •  " + ship_name + "  •  RIGHT"
 	$Hint.text = "Ship selected — release when the path is clear"
+	$ReleaseButton.text = "RELEASE " + ship_name + " SHIP  →"
 	$ReleaseButton.disabled = false
 
 func _play_ship_departure() -> void:
@@ -60,7 +59,12 @@ func _finish_ship_departure() -> void:
 	selected_ship_id = ""
 	selected_button = null
 	input_locked = false
-	$Hint.text = "Passengers boarded — dock assignment settled"
+	if $SessionBridge.GetPhaseSummary().contains("WON"):
+		$Hint.text = "Route complete — press RESTART LEVEL to play again"
+		$Board/BlueShipButton.disabled = true
+		$Board/RedShipButton.disabled = true
+	else:
+		$Hint.text = "Passengers boarded — select the next ship"
 
 func _refresh_board() -> void:
 	$Board/VisualGrid.rebuild($SessionBridge.GetPresentationSnapshot())
@@ -84,11 +88,9 @@ func _on_restart_pressed() -> void:
 	$Board/RedShipButton.position.x = 340.0
 	$Board/BlueShipButton.disabled = false
 	$Board/RedShipButton.disabled = false
-	$Board/BlueShipButton.text = "BLUE SHIP  •  RIGHT"
-	$Board/RedShipButton.text = "RED SHIP  •  RIGHT"
-	$Board/BlueShipButton.modulate = Color.WHITE
-	$Board/RedShipButton.modulate = Color.WHITE
+	_reset_ship_button_labels()
 	$ReleaseButton.disabled = true
+	$ReleaseButton.text = "RELEASE SELECTED SHIP  →"
 	$UndoButton.disabled = true
 	$Status.text = "Level 1  •  Route the first passengers"
 	$Hint.text = "Select a ship to choose an action"
@@ -108,12 +110,16 @@ func _on_undo_pressed() -> void:
 	$Board/RedShipButton.position.x = 340.0
 	$Board/BlueShipButton.disabled = false
 	$Board/RedShipButton.disabled = false
-	$Board/BlueShipButton.text = "BLUE SHIP  •  RIGHT"
-	$Board/RedShipButton.text = "RED SHIP  •  RIGHT"
-	$Board/BlueShipButton.modulate = Color.WHITE
-	$Board/RedShipButton.modulate = Color.WHITE
+	_reset_ship_button_labels()
 	$ReleaseButton.disabled = true
+	$ReleaseButton.text = "RELEASE SELECTED SHIP  →"
 	$UndoButton.disabled = true
 	$Status.text = "Move undone"
 	$Hint.text = "Select a ship to choose an action"
 	_refresh_board()
+
+func _reset_ship_button_labels() -> void:
+	$Board/BlueShipButton.text = "BLUE SHIP  •  RIGHT"
+	$Board/RedShipButton.text = "RED SHIP  •  RIGHT"
+	$Board/BlueShipButton.modulate = Color.WHITE
+	$Board/RedShipButton.modulate = Color.WHITE
