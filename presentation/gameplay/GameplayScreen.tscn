@@ -54,6 +54,7 @@ offset_right = 600.0
 offset_bottom = 1030.0
 theme_override_font_sizes/font_size = 24
 text = "RELEASE SHIP"
+disabled = true
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
@@ -81,6 +82,27 @@ offset_bottom = 115.0
 theme_override_colors/font_color = Color(0.45, 0.85, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "GRID  •  Loading board..."
+horizontal_alignment = 1
+
+[node name="ShipButton" type="Button" parent="Board"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 140.0
+offset_right = 530.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0.35, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "BLUE SHIP  •  RIGHT"
+
+[node name="ShipCaption" type="Label" parent="Board"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 225.0
+offset_right = 605.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0.55, 0.68, 0.82, 1)
+theme_override_font_sizes/font_size = 16
+text = "Tap a ship to select an action"
 horizontal_alignment = 1
 
 [node name="DockState" type="Label" parent="Board"]

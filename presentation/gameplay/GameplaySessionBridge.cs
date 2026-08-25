@@ -22,10 +22,13 @@ public partial class GameplaySessionBridge : Node
     }
 
     public string ReleaseFirstShip()
+        => ReleaseShip("tutorial-ship");
+
+    public string ReleaseShip(string shipId)
     {
         if (session is null) return "Session is not ready";
 
-        var result = session.Submit(new ReleaseShipCommand(new ShipId("tutorial-ship")));
+        var result = session.Submit(new ReleaseShipCommand(new ShipId(shipId)));
         if (result.Accepted)
             return result.NextState.Phase == GamePhase.Won ? "Level complete" : "Ship released";
 
