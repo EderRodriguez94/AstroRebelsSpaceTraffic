@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-25T01:34:20.8397337Z",
+  "generated_at_utc": "2026-08-25T01:35:34.2765032Z",
   "source": "C:\\Users\\eorod\\Desktop\\Proyectos\\juegos\\AstroRebelsSpaceTraffic\\levels\\Definitions\\tutorial",
   "entries": [
     {
@@ -54,5 +54,8 @@
   "entry_count": 8,
   "shape_valid": true,
   "solver_status": "solved",
+  "solver_budget": 64,
+  "solved_count": 8,
+  "human_review_state": "pending_product_review",
   "errors": []
 }

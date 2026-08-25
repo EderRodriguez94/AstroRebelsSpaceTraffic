@@ -6,12 +6,14 @@ var root = Path.GetFullPath(args.ElementAtOrDefault(0) ?? "levels/Definitions/tu
 var reportPath = Path.GetFullPath(args.ElementAtOrDefault(1) ?? "build/reports/level-validation.json");
 var entries = new List<object>();
 var errors = new List<string>();
+var solvedCount = 0;
 
 foreach (var file in Directory.EnumerateFiles(root, "*.json").OrderBy(path => path, StringComparer.Ordinal))
 {
     var json = File.ReadAllText(file);
     var loaded = LevelLoader.Load(json);
     var solved = loaded.Success && BaselineSolver.Solve(loaded.State!).Solved;
+    if (solved) solvedCount++;
     if (!loaded.Success) errors.Add($"{Path.GetFileName(file)}:loader");
     if (!solved) errors.Add($"{Path.GetFileName(file)}:solver");
     entries.Add(new { level_id = loaded.State?.LevelId ?? Path.GetFileNameWithoutExtension(file), path = file, valid_shape = loaded.Success, solver = solved ? "solved" : "unsolved" });
@@ -25,6 +27,9 @@ var report = new
     entry_count = entries.Count,
     shape_valid = errors.All(error => !error.EndsWith(":loader", StringComparison.Ordinal)),
     solver_status = errors.Any(error => error.EndsWith(":solver", StringComparison.Ordinal)) ? "failed" : "solved",
+    solver_budget = 64,
+    solved_count = solvedCount,
+    human_review_state = "pending_product_review",
     errors = errors.OrderBy(error => error).ToArray()
 };
 Directory.CreateDirectory(Path.GetDirectoryName(reportPath)!);
