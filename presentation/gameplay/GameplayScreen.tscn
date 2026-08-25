@@ -72,6 +72,39 @@ offset_right = 680.0
 offset_bottom = 900.0
 color = Color(0.07, 0.1, 0.18, 1)
 
+[node name="BoardState" type="Label" parent="Board"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 70.0
+offset_right = 612.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0.45, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "GRID  •  Loading board..."
+horizontal_alignment = 1
+
+[node name="DockState" type="Label" parent="Board"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 270.0
+offset_right = 612.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0.8, 0.86, 0.96, 1)
+theme_override_font_sizes/font_size = 20
+text = "DOCKS  •  Loading..."
+horizontal_alignment = 1
+
+[node name="QueueState" type="Label" parent="Board"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 330.0
+offset_right = 612.0
+offset_bottom = 375.0
+theme_override_colors/font_color = Color(0.8, 0.86, 0.96, 1)
+theme_override_font_sizes/font_size = 20
+text = "PASSENGERS  •  Loading..."
+horizontal_alignment = 1
+
 [node name="Hint" type="Label" parent="."]
 layout_mode = 0
 offset_left = 60.0

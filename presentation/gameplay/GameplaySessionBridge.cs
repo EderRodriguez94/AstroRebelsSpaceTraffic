@@ -17,7 +17,7 @@ public partial class GameplaySessionBridge : Node
             SpecialType.Normal, 1, true);
         var grid = new GridState(new[] { new GridState.Zone(zone, 3, 1, new[] { shipId }) });
         session = new GameSession(GameState.CreateInitial("level-1", grid, new[] { ship },
-            new PassengerQueueState(Array.Empty<PassengerGroup>()), new PreQueueState(Array.Empty<PassengerGroup>()),
+            new PassengerQueueState(new[] { new PassengerGroup("red", 4) }), new PreQueueState(Array.Empty<PassengerGroup>()),
             DockState.CreateInitial()));
     }
 
@@ -30,5 +30,28 @@ public partial class GameplaySessionBridge : Node
             return result.NextState.Phase == GamePhase.Won ? "Level complete" : "Ship released";
 
         return $"Release rejected: {result.RejectionReason}";
+    }
+
+    public string GetBoardSummary()
+    {
+        if (session is null) return "Loading board...";
+        var state = session.State;
+        var shipsOnGrid = state.Zones.Zones.Sum(zone => zone.ShipIds.Count);
+        return $"GRID  •  {shipsOnGrid} ship{(shipsOnGrid == 1 ? "" : "s")} remaining  •  Turn {state.MoveIndex}";
+    }
+
+    public string GetDockSummary()
+    {
+        if (session is null) return "DOCKS  •  Loading...";
+        var occupied = session.State.Docks.Count(dock => dock.Occupant is not null);
+        var active = session.State.Docks.Count(dock => dock.IsActive);
+        return $"DOCKS  •  {occupied} / {active} occupied";
+    }
+
+    public string GetQueueSummary()
+    {
+        if (session is null) return "PASSENGERS  •  Loading...";
+        var waiting = session.State.PassengerQueue.Groups.Sum(group => group.Size);
+        return $"PASSENGERS  •  {waiting} waiting";
     }
 }
