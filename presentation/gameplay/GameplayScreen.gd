@@ -61,6 +61,7 @@ func _finish_ship_departure() -> void:
 	$Hint.text = "Passengers boarded — dock assignment settled"
 
 func _refresh_board() -> void:
+	$Board/VisualGrid.rebuild($SessionBridge.GetPresentationSnapshot())
 	$Board/BoardState.text = $SessionBridge.GetBoardSummary()
 	$Board/DockState.text = $SessionBridge.GetDockSummary()
 	$Board/QueueState.text = $SessionBridge.GetQueueSummary()

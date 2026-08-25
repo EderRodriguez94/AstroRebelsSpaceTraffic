@@ -80,4 +80,40 @@ public partial class GameplaySessionBridge : Node
         if (session is null) return "SESSION  •  Loading...";
         return $"SESSION  •  {session.State.Phase.ToString().ToUpperInvariant()}";
     }
+
+    public Godot.Collections.Dictionary GetPresentationSnapshot()
+    {
+        var snapshot = new Godot.Collections.Dictionary
+        {
+            ["zones"] = new Godot.Collections.Array(),
+            ["ships"] = new Godot.Collections.Array()
+        };
+        if (session is null) return snapshot;
+
+        var zones = (Godot.Collections.Array)snapshot["zones"];
+        foreach (var zone in session.State.Zones.Zones)
+        {
+            zones.Add(new Godot.Collections.Dictionary
+            {
+                ["id"] = zone.Id.Value,
+                ["width"] = zone.Width,
+                ["height"] = zone.Height
+            });
+        }
+
+        var ships = (Godot.Collections.Array)snapshot["ships"];
+        foreach (var ship in session.State.ShipsById.Values)
+        {
+            ships.Add(new Godot.Collections.Dictionary
+            {
+                ["id"] = ship.ShipId.Value,
+                ["color"] = ship.ColorId,
+                ["direction"] = ship.ExitDirection.ToString(),
+                ["x"] = ship.AnchorCell.X,
+                ["y"] = ship.AnchorCell.Y,
+                ["on_grid"] = session.State.Zones.Zones.Any(zone => zone.ShipIds.Contains(ship.ShipId))
+            });
+        }
+        return snapshot;
+    }
 }
