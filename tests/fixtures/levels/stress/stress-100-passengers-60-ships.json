@@ -1,0 +1,536 @@
+{
+  "schema_version": 1,
+  "level_id": "stress-100-passengers-60-ships",
+  "pre_queue_capacity": 128,
+  "zones": [
+    {
+      "id": "stress-zone",
+      "width": 12,
+      "height": 5,
+      "ships": [
+        {
+          "id": "stress-ship-001",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-002",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-003",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-004",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-005",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-006",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-007",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-008",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-009",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-010",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-011",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-012",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-013",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-014",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-015",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-016",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-017",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-018",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-019",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-020",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-021",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-022",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-023",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-024",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-025",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-026",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-027",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-028",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-029",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-030",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-031",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-032",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-033",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-034",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-035",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-036",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-037",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-038",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-039",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-040",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-041",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-042",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-043",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-044",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-045",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-046",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-047",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-048",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-049",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-050",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-051",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-052",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-053",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-054",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-055",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-056",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-057",
+          "color": "red",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-058",
+          "color": "blue",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-059",
+          "color": "green",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        },
+        {
+          "id": "stress-ship-060",
+          "color": "yellow",
+          "size": "Small",
+          "direction": "Right",
+          "passengers": 0
+        }
+      ]
+    }
+  ],
+  "passenger_queue": [
+    {
+      "color": "red",
+      "size": 4
+    },
+    {
+      "color": "blue",
+      "size": 4
+    },
+    {
+      "color": "green",
+      "size": 4
+    },
+    {
+      "color": "yellow",
+      "size": 4
+    },
+    {
+      "color": "red",
+      "size": 4
+    },
+    {
+      "color": "blue",
+      "size": 4
+    },
+    {
+      "color": "green",
+      "size": 4
+    },
+    {
+      "color": "yellow",
+      "size": 4
+    },
+    {
+      "color": "red",
+      "size": 4
+    },
+    {
+      "color": "blue",
+      "size": 4
+    },
+    {
+      "color": "green",
+      "size": 4
+    },
+    {
+      "color": "yellow",
+      "size": 4
+    },
+    {
+      "color": "red",
+      "size": 4
+    },
+    {
+      "color": "blue",
+      "size": 4
+    },
+    {
+      "color": "green",
+      "size": 4
+    },
+    {
+      "color": "yellow",
+      "size": 4
+    },
+    {
+      "color": "red",
+      "size": 4
+    },
+    {
+      "color": "blue",
+      "size": 4
+    },
+    {
+      "color": "green",
+      "size": 4
+    },
+    {
+      "color": "yellow",
+      "size": 4
+    },
+    {
+      "color": "red",
+      "size": 4
+    },
+    {
+      "color": "blue",
+      "size": 4
+    },
+    {
+      "color": "green",
+      "size": 4
+    },
+    {
+      "color": "yellow",
+      "size": 4
+    },
+    {
+      "color": "red",
+      "size": 4
+    }
+  ]
+}
