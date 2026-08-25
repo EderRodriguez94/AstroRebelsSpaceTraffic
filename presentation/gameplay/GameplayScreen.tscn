@@ -75,6 +75,16 @@ offset_bottom = 1180.0
 theme_override_font_sizes/font_size = 20
 text = "RESTART LEVEL"
 
+[node name="UndoButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 1190.0
+offset_right = 600.0
+offset_bottom = 1250.0
+theme_override_font_sizes/font_size = 20
+text = "UNDO LAST MOVE"
+disabled = true
+
 [node name="Board" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 40.0

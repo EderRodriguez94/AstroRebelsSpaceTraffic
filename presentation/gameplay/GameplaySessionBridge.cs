@@ -9,6 +9,7 @@ namespace AstroRebelsTraffic.Presentation.Gameplay;
 public partial class GameplaySessionBridge : Node
 {
     private GameSession? session;
+    private GameState? previousState;
 
     public override void _Ready()
     {
@@ -17,6 +18,7 @@ public partial class GameplaySessionBridge : Node
 
     public void ResetSession()
     {
+        previousState = null;
         var zone = new ZoneId("tutorial-zone");
         var blueId = new ShipId("tutorial-blue");
         var redId = new ShipId("tutorial-red");
@@ -37,11 +39,21 @@ public partial class GameplaySessionBridge : Node
     {
         if (session is null) return "Session is not ready";
 
+        var before = session.State;
         var result = session.Submit(new ReleaseShipCommand(new ShipId(shipId)));
+        if (result.Accepted) previousState = before;
         if (result.Accepted)
             return result.NextState.Phase == GamePhase.Won ? "Level complete" : "Ship released";
 
         return $"Release rejected: {result.RejectionReason}";
+    }
+
+    public bool UndoLastMove()
+    {
+        if (previousState is null) return false;
+        session = new GameSession(previousState);
+        previousState = null;
+        return true;
     }
 
     public string GetBoardSummary()
